@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Telegram Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        button { padding: 10px 15px; background: #0088cc; color: white; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Hello, Telegram Mini App!</h1>
+    <p>Welcome, <span id="user-name">User</span>!</p>
+    <button onclick="sendData()">Kirim Data ke Bot</button>
+
+    <script>
+        // Inisialisasi WebApp Telegram
+        const tg = window.Telegram.WebApp;
+
+        // Tampilkan data pengguna
+        document.getElementById('user-name').textContent = 
+            tg.initDataUnsafe.user?.first_name || "Anonymous";
+
+        // Fungsi untuk mengirim data kembali ke bot
+        function sendData() {
+            tg.sendData(JSON.stringify({ action: "button_click" }));
+            tg.close(); // Tutup Mini App
+        }
+
+        // Expand WebApp secara otomatis
+        tg.expand();
+    </script>
+</body>
+</html>
