@@ -259,7 +259,7 @@
                     <div class="avatar">U</div>
                     <div class="user-info">
                         <h2>Username</h2>
-                        <p>Member sejak Januari 2023</p>
+                        <p>Telegram ID: <span id="user-id">-</span></p>
                     </div>
                 </div>
                 <div>
@@ -330,7 +330,12 @@
             const user = tg.initDataUnsafe.user;
             const avatar = document.querySelector('.avatar');
             const username = document.querySelector('.user-info h2');
+            const userIdElement = document.getElementById('user-id');
             
+            // Tampilkan Telegram ID
+            if (user.id) {
+                userIdElement.textContent = user.id;
+            }
             // Set avatar dengan inisial jika tidak ada foto
             if (user.photo_url) {
                 avatar.style.backgroundImage = `url(${user.photo_url})`;
