@@ -330,11 +330,16 @@
             const username = document.querySelector('.user-info h2');
             
             // Set avatar dengan inisial jika tidak ada foto
+            if (user.photo_url) {
+                avatar.style.backgroundImage = `url(${user.photo_url})`;
+                avatar.textContent = '';
+            } else {
             if (user.first_name) {
                 avatar.textContent = user.first_name.charAt(0);
                 if (user.last_name) {
                     avatar.textContent += user.last_name.charAt(0);
                 }
+            }
             }
             
             // Set username
