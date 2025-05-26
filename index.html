@@ -254,7 +254,7 @@
             <div class="card">
               <h1 class="card-header bg-info text-light">Account</h1>
                 <div class="user-profile mt-3">
-                    <div class="avatar">U</div>
+                    <div class="user-photo">U</div>
                     <div class="user-info">
                         <h2>Username</h2>
                         <p>Member sejak Januari 2023</p>
@@ -326,7 +326,7 @@
         // Jika ingin menggunakan data dari Telegram
         if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
             const user = tg.initDataUnsafe.user;
-            const avatar = document.querySelector('.avatar');
+            const avatar = document.querySelector('.user-photo');
             const username = document.querySelector('.user-info h2');
             
             // Set avatar dengan inisial jika tidak ada foto
